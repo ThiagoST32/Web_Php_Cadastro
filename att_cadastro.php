@@ -2,7 +2,7 @@
 <?php
     if(!empty($_GET['id'])){
         include_once('connect.php');
-
+        include_once('saveEdit.php');
         $id = $_GET['id'];
 
         $sqlSelect = "SELECT * FROM cadastro WHERE id = $id";
