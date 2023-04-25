@@ -57,7 +57,7 @@
                 <i class="fa-brands fa-github" style="color: #ffffff;"></i>
                 Github: <input type="text" name="github" id="github" autocomplete="off" value="<?php echo $github; ?>" required>
 
-                <input type="hidden" name="id" id="id" value="<?php echo $id?>" required>
+                <input type="hidden" name="id" id="id" value="<?php echo $id;?>" required>
 
                 <input type="submit" value="atualizar" nome="atualizar" class="btn-att">    
                 <a href="../WEB/tabela.php">Voltar</a>

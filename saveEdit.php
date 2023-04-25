@@ -4,7 +4,7 @@
 
     if(isset($_POST['atualizar'])){
 
-        
+
         $id = $_POST ['id'];
         $email = $_POST ['email'];
         $senha = $_POST ['senha'];
