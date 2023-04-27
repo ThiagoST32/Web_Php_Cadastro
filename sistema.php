@@ -1,6 +1,7 @@
 <?php
     session_start();    
     include_once('connect.php');
+    include_once('delet_user.php');
 
     if((!isset($_SESSION['email']) === true) and (!isset($_SESSION['senha']) === true )){
         unset($_SESSION['email']);
@@ -51,6 +52,7 @@
     <?php
     echo "<h1> Bem-vindo <u>$logado</u></h1>";
     ?>
+    
 
 </body>
 </html>

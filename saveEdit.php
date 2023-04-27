@@ -4,7 +4,7 @@
         
     $id = $_GET['id'];
         
-        $sql = "SELECT * FROM `cadastro` WHERE id=$id";
+        $sql = "SELECT * FROM cadastro WHERE id=$id";
         
         $result = mysqli_query($conn, $sql);
         
@@ -22,11 +22,11 @@
       
         if (!empty($_POST['id']) && !empty($_POST['email']) && !empty($_POST['senha']) && !empty($_POST['telefone']) && !empty($_POST['github'])) {
             
-            $id = $_POST ['id'];
-            $email = $_POST ['email'];
-            $senha = $_POST ['senha'];
-            $telefone = $_POST ['telefone'];
-            $github = $_POST ['github'];
+            $id = $user_data ['id'];
+            $email = $user_data ['email'];
+            $senha = $user_data ['senha'];
+            $telefone = $user_data ['telefone'];
+            $github = $user_data ['github'];
 
         }
 

@@ -2,27 +2,52 @@
 <?php
     if(!empty($_GET['id'])){
         include_once('connect.php');
-        include_once('saveEdit.php');
         $id = $_GET['id'];
-
-        $sqlSelect = "SELECT * FROM cadastro WHERE id = $id";
         
-        $r = $conn->query($sqlSelect);
+        $sql = "SELECT * FROM cadastro WHERE id=$id";
         
-        if($r-> num_rows > 0){
+        $result = mysqli_query($conn, $sql);
+        
+        //trnasforma o resulta em array e armazena na var linha
+        $row = mysqli_fetch_assoc($result);
+        
+        //atribui na variavel nome o valor que vem da tabela
+        $id = $row ['id'];
+        $email = $row ['email'];
+        $senha = $row ['senha'];
+        $telefone = $row ['telefone'];
+        $github = $row ['github'];
 
-            while($user_data = mysqli_fetch_assoc($r)){
+        if(isset($_POST['atualizar'])){
+      
+            if (!empty($_POST['email']) && !empty($_POST['senha']) && !empty($_POST['telefone']) && !empty($_POST['github'])) {
+                
 
                 $email = $user_data ['email'];
                 $senha = $user_data ['senha'];
-                $telefone = $user_data['telefone'];
+                $telefone = $user_data ['telefone'];
                 $github = $user_data ['github'];
+    
             }
+    
+            $sqlUpdate = "UPDATE cadastro SET email='$email', senha='$senha', telefone='$telefone', github='$github' WHERE id='$id'";
+            $result = $conn ->query($sqlUpdate);
+        }
+        
+        // if($result-> num_rows > 0){
+
+        //     while($user_data = mysqli_fetch_assoc($result)){
+
+        //         $email = $user_data ['email'];
+        //         $senha = $user_data ['senha'];
+        //         $telefone = $user_data['telefone'];
+        //         $github = $user_data ['github'];
+        //     }
        
-        }
-        else{
-            header('Location: sistema.php');
-        }
+        // }
+        // else{
+        //     header('Location: sistema.php');
+        // }
       
 
     }
@@ -46,7 +71,7 @@
                 Id: <input type="text" name="id" id="id" autocomplete="off" value="<?php echo $id; ?>">
                 
                 <i class="fa-solid fa-envelope" style="color: #ffffff;"></i>        
-                Email: <input type="text" name="email" id="email" autocomplete="off" value="<?php echo $email; ?>" required>
+                Email: <input type="text" name="email" id="email" autocomplete="off" value="<?php include_once('att_cadastro.php'); echo $email; ?>" required>
 
                 <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
                 Senha: <input type="text" name="senha" id="senha" autocomplete="off" value="<?php echo $senha; ?>" required>
