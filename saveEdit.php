@@ -1,5 +1,6 @@
 <?php
     include_once('connect.php');
+    include_once('att_cadastro.php');
         
     $id = $_GET['id'];
         
@@ -28,7 +29,7 @@
             $github = $_POST ['github'];
 
         }
-        
+
         $sqlUpdate = "UPDATE cadastro SET email='$email', senha='$senha', telefone='$telefone', github='$github' WHERE id='$id'";
         $result = $conn ->query($sqlUpdate);
     }
