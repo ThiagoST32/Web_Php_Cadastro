@@ -8,7 +8,7 @@
         $sqlSelect = "SELECT * FROM cadastro WHERE id = $id";
         
         $r = $conn->query($sqlSelect);
-
+        
         if($r-> num_rows > 0){
 
             while($user_data = mysqli_fetch_assoc($r)){

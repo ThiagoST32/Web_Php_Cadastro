@@ -8,6 +8,8 @@ $id_prod = $_GET['updateid'];
 $sql = "SELECT * FROM `produto` WHERE id_prod=$id_prod";
 //executa a query
 $result = mysqli_query($con, $sql);
+
+
 //trnasforma o resulta em array e armazena na var linha
 $row = mysqli_fetch_assoc($result);
 //atribui na variavel nome o valor que vem da tabela
