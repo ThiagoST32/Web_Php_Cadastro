@@ -12,15 +12,14 @@
     $logado = $_SESSION['email'];
 
     if(!empty($_GET['search'])){
-        $data=$_GET['search'];
+        $data= $_GET ['search'];
         
-        $sql= "SELECT * FROM cadastro WHERE id LIKE '%$data%' or email LIKE '%$data% or senha LIKE '%$data% ORDER BY id DESC";
+        $sql= "SELECT * FROM cadastro WHERE id LIKE '%$data%' or email LIKE '%$data% or telefone LIKE '%$data% ORDER BY id DESC";
     }
     else{
         $sql = "SELECT * FROM cadastro ORDER BY id DESC";    
     }
 
-    $sql = "SELECT * FROM cadastro ORDER BY id DESC";
     $resultado = $conn->query($sql);
  
     // Mostra o resultado da tabela na tela
