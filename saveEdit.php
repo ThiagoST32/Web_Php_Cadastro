@@ -1,5 +1,6 @@
 <?php
     include_once('connect.php');
+    include_once('att_cadastro.php')
   //trnasforma o resulta em array e armazena na var linha
         $row = mysqli_fetch_assoc($result);
         //atribui na variavel nome o valor que vem da tabela
