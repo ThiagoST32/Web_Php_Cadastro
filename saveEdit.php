@@ -1,8 +1,15 @@
 <?php
     include_once('connect.php');
-    include_once('att_cadastro.php')
-  //trnasforma o resulta em array e armazena na var linha
+        
+    $id = $_GET['id'];
+        
+        $sql = "SELECT * FROM `cadastro` WHERE id=$id";
+        
+        $result = mysqli_query($conn, $sql);
+        
+        //trnasforma o resulta em array e armazena na var linha
         $row = mysqli_fetch_assoc($result);
+        
         //atribui na variavel nome o valor que vem da tabela
         $id = $row ['id'];
         $email = $row ['email'];
