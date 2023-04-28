@@ -12,5 +12,5 @@
             $resultDelete =$conn->query($sqlDelete);
         }
     }
-    // header('Location: sitema');
+    // header('Location: tabela.php');
 ?>
