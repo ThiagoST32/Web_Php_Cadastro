@@ -15,5 +15,5 @@
     $stmt->close();
     $conn->close();
 
-
+        header('Location: login.html');
 ?>
