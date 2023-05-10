@@ -44,7 +44,6 @@
             display: flex;
             justify-content: center;
             gap: 0.2em;
-
         }
     </style>
 </head>
