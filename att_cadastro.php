@@ -11,44 +11,12 @@
         //trnasforma o resulta em array e armazena na var linha
         $row = mysqli_fetch_assoc($result);
         
-        //atribui na variavel nome o valor que vem da tabela
+        // atribui na variavel nome o valor que vem da tabela
         $id = $row ['id'];
         $email = $row ['email'];
         $senha = $row ['senha'];
         $telefone = $row ['telefone'];
         $github = $row ['github'];
-
-        if(isset($_POST['atualizar'])){
-      
-            if (!empty($_POST['email']) && !empty($_POST['senha']) && !empty($_POST['telefone']) && !empty($_POST['github'])) {
-                
-
-                $email = $user_data ['email'];
-                $senha = $user_data ['senha'];
-                $telefone = $user_data ['telefone'];
-                $github = $user_data ['github'];
-    
-            }
-    
-            $sqlUpdate = "UPDATE cadastro SET email='$email', senha='$senha', telefone='$telefone', github='$github' WHERE id='$id'";
-            $result = $conn ->query($sqlUpdate);
-        }
-        
-        // if($result-> num_rows > 0){
-
-        //     while($user_data = mysqli_fetch_assoc($result)){
-
-        //         $email = $user_data ['email'];
-        //         $senha = $user_data ['senha'];
-        //         $telefone = $user_data['telefone'];
-        //         $github = $user_data ['github'];
-        //     }
-       
-        // }
-        // else{
-        //     header('Location: sistema.php');
-        // }
-      
 
     }
       
@@ -67,23 +35,26 @@
 <body>
     <div class="container">
         <div class="base2">
-            <form action="att_cadastro.php" method="POST">
-                Id: <input type="text" name="id" id="id" autocomplete="off" value="<?php echo $id; ?>">
+            <form action="saveEdit.php" method="POST">
+                Id: <input type="text" name="id" id="id" autocomplete="off" value="<?php if(isset($id)){
+                    echo $id;
+                } ?>">
                 
                 <i class="fa-solid fa-envelope" style="color: #ffffff;"></i>        
-                Email: <input type="text" name="email" id="email" autocomplete="off" value="<?php include_once('att_cadastro.php'); echo $email; ?>" required>
+                Email: <input type="text" name="email" id="email" value="<?php echo $email ?>" required>
 
                 <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
-                Senha: <input type="text" name="senha" id="senha" autocomplete="off" value="<?php echo $senha; ?>" required>
+                Senha: <input type="text" name="senha" id="senha"  value="<?php echo $senha ?>" required>
 
                 <i class="fa-solid fa-phone" style="color: #ffffff;"></i>
-                Telefone: <input type="text" name="telefone" id="telefone" autocomplete="off" value="<?php echo $telefone;?>" required>
+                Telefone: <input type="text" name="telefone" id="telefone" value="<?php echo $telefone?>" required>
 
                 <i class="fa-brands fa-github" style="color: #ffffff;"></i>
-                Github: <input type="text" name="github" id="github" autocomplete="off" value="<?php echo $github; ?>" required>
-
+                Github: <input type="text" name="github" id="github" value="<?php echo $github ?>" required>
+                <br><br>
                 
-                <input type="submit" value="atualizar" nome="atualizar" class="btn-att">    
+                <input type="hidden" name="id" value="<?php echo $id;?>">
+                <input type="submit" value="atualizar" name="atualizar" id="atualizar" class="btn-att">    
                 <a href="../WEB/tabela.php">Voltar</a>
             </form>    
         </div>
